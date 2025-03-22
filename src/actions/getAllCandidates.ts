@@ -1,5 +1,7 @@
 import { StationType } from "../types/Types";
 
+import allStations from "../assets/tube_stations.json"; // Adjust the path if needed
+
 function getAllCandidates(stations: StationType[]) {
   // Find the midpoint between the two stations
   const { lat, lon } = getMidPoint(stations);
@@ -13,7 +15,7 @@ function getAllCandidates(stations: StationType[]) {
   );
 
   // Filter stations that are further away than the radius
-  const candidates = stations.filter((station) => {
+  const candidates = allStations.filter((station) => {
     const distance = getDistance(lat, lon, station.latitude, station.longitude);
     return distance <= radius; // Keep stations within the radius
   });

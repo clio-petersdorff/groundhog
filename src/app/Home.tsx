@@ -29,7 +29,9 @@ export default function Home() {
   return (
     <Center h="100vh">
       <Stack w="30em">
-        <Title ta="center">Home page</Title>
+        <Title order={2} ta="center">
+          PubHour
+        </Title>
         <Space h="3em" />
         {view === "inputs" && (
           <Inputs

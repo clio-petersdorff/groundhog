@@ -1,4 +1,3 @@
-import { Title } from "@mantine/core";
 import getAllCandidates from "../actions/getAllCandidates";
 import { StationType } from "../types/Types";
 import Loading from "./Loading";
@@ -16,10 +15,5 @@ export default function Results({ stations }: ResultsProps) {
     return <Loading />;
   }
 
-  return (
-    <>
-      <Title>All station options</Title>
-      {/* {candidates.map((item) => item.name)} */}
-    </>
-  );
+  return <>{/* {candidates.map((item) => item.name)} */}</>;
 }
