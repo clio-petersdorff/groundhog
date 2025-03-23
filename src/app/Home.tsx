@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Center, Stack, Title, Space } from "@mantine/core";
+import { Center, Stack, Title, Space, Flex } from "@mantine/core";
 import getTubeStations from "../actions/getTubeStations";
 import Inputs from "./Inputs";
 import Results from "./Results";
@@ -27,8 +27,10 @@ export default function Home() {
   }, []);
 
   return (
-    <Center h="100vh">
+    <Flex gap="xl" justify="center" align="center" direction="column">
       <Stack w="30em">
+        <Space h="3em" />
+
         <Title order={2} ta="center">
           PubHour
         </Title>
@@ -45,6 +47,6 @@ export default function Home() {
           <Results stations={selectedStations} setView={setView} />
         )}
       </Stack>
-    </Center>
+    </Flex>
   );
 }
