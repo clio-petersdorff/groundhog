@@ -180,12 +180,6 @@
     "longitude": -0.152367
   },
   {
-    "name": "Balham Station  / Balham Station Road",
-    "zones": "3",
-    "latitude": 51.44324,
-    "longitude": -0.15222
-  },
-  {
     "name": "Bermondsey Station",
     "zones": "2",
     "latitude": 51.49814,
@@ -448,12 +442,6 @@
     "zones": "2+3",
     "latitude": 51.45916,
     "longitude": -0.21074
-  },
-  {
-    "name": "Edgware Road Station  / Bakerloo Line",
-    "zones": "1",
-    "latitude": 51.52021,
-    "longitude": -0.17027
   },
   {
     "name": "Edgware Road Station",
@@ -1140,12 +1128,6 @@
     "longitude": -0.09758
   },
   {
-    "name": "Sloane Square Station  / Symon Street",
-    "zones": "1",
-    "latitude": 51.49249,
-    "longitude": -0.15663
-  },
-  {
     "name": "Sloane Square Station",
     "zones": "1",
     "latitude": 51.49217,
@@ -1368,18 +1350,6 @@
     "longitude": 0.029069
   },
   {
-    "name": "Wanstead Station  / George Green",
-    "zones": "4",
-    "latitude": 51.57524,
-    "longitude": 0.02826
-  },
-  {
-    "name": "Westminster Station",
-    "zones": "1",
-    "latitude": 51.50115,
-    "longitude": -0.12386
-  },
-  {
     "name": "Westbourne Park Station",
     "zones": "2",
     "latitude": 51.5209,
@@ -1422,18 +1392,6 @@
     "longitude": -0.072384
   },
   {
-    "name": "Angel Underground Station",
-    "zones": "1",
-    "latitude": 51.532624,
-    "longitude": -0.105898
-  },
-  {
-    "name": "Aldgate Underground Station",
-    "zones": "1",
-    "latitude": 51.514246,
-    "longitude": -0.075689
-  },
-  {
     "name": "Alperton Underground Station",
     "zones": "4",
     "latitude": 51.540627,
@@ -1470,12 +1428,6 @@
     "longitude": -0.124235
   },
   {
-    "name": "Bounds Green",
-    "zones": "3+4",
-    "latitude": 51.60729,
-    "longitude": -0.12447
-  },
-  {
     "name": "Becontree Underground Station",
     "zones": "5",
     "latitude": 51.540331,
@@ -1500,46 +1452,10 @@
     "longitude": 0.081053
   },
   {
-    "name": "Bethnal Green Underground Station",
-    "zones": "2",
-    "latitude": 51.527222,
-    "longitude": -0.055506
-  },
-  {
-    "name": "Bethnal Green",
-    "zones": "2",
-    "latitude": 51.527171,
-    "longitude": -0.054557
-  },
-  {
-    "name": "Balham Underground Station",
-    "zones": "3",
-    "latitude": 51.443288,
-    "longitude": -0.152997
-  },
-  {
-    "name": "Blackhorse Road Underground Station",
-    "zones": "3",
-    "latitude": 51.586919,
-    "longitude": -0.04115
-  },
-  {
     "name": "Blackhorse Road Station",
     "zones": "3",
     "latitude": 51.586828,
     "longitude": -0.041645
-  },
-  {
-    "name": "Bermondsey Underground Station",
-    "zones": "2",
-    "latitude": 51.49775,
-    "longitude": -0.063993
-  },
-  {
-    "name": "Bond Street Underground Station",
-    "zones": "1",
-    "latitude": 51.514304,
-    "longitude": -0.149723
   },
   {
     "name": "Bank Underground Station",
@@ -1728,12 +1644,6 @@
     "longitude": -0.049405
   },
   {
-    "name": "Canary Wharf Underground Station",
-    "zones": "2",
-    "latitude": 51.503488,
-    "longitude": -0.018246
-  },
-  {
     "name": "Dagenham East Underground Station",
     "zones": "5",
     "latitude": 51.544096,
@@ -1794,22 +1704,10 @@
     "longitude": -0.165012
   },
   {
-    "name": "Edgware Underground Station",
-    "zones": "5",
-    "latitude": 51.613653,
-    "longitude": -0.274928
-  },
-  {
     "name": "East Ham Underground Station",
     "zones": "3+4",
     "latitude": 51.538948,
     "longitude": 0.051186
-  },
-  {
-    "name": "Embankment Underground Station",
-    "zones": "1",
-    "latitude": 51.507058,
-    "longitude": -0.122666
   },
   {
     "name": "Elm Park Underground Station",
@@ -1822,18 +1720,6 @@
     "zones": "2+3",
     "latitude": 51.459205,
     "longitude": -0.211
-  },
-  {
-    "name": "Edgware Road (Bakerloo) Underground Station",
-    "zones": "1",
-    "latitude": 51.520299,
-    "longitude": -0.17015
-  },
-  {
-    "name": "Edgware Road (Circle Line) Underground Station",
-    "zones": "1",
-    "latitude": 51.519858,
-    "longitude": -0.167832
   },
   {
     "name": "Euston Square Underground Station",
@@ -1852,12 +1738,6 @@
     "zones": "2",
     "latitude": 51.480081,
     "longitude": -0.195422
-  },
-  {
-    "name": "Farringdon Underground Station",
-    "zones": "1",
-    "latitude": 51.520252,
-    "longitude": -0.104913
   },
   {
     "name": "Fairlop Underground Station",
@@ -2556,12 +2436,6 @@
     "longitude": -0.41071
   },
   {
-    "name": "Ruislip Gardens",
-    "zones": "5",
-    "latitude": 51.560737,
-    "longitude": -0.410839
-  },
-  {
     "name": "Ruislip Manor Underground Station",
     "zones": "6",
     "latitude": 51.573202,
@@ -2722,12 +2596,6 @@
     "zones": "5",
     "latitude": 51.556853,
     "longitude": -0.398915
-  },
-  {
-    "name": "South Ruislip Station",
-    "zones": "5",
-    "latitude": 51.556958,
-    "longitude": -0.399373
   },
   {
     "name": "Sloane Square Underground Station",
@@ -3090,24 +2958,6 @@
     "longitude": -0.60759
   },
   {
-    "name": "Balham",
-    "zones": "3",
-    "latitude": 51.443259,
-    "longitude": -0.152707
-  },
-  {
-    "name": "Bank",
-    "zones": "1",
-    "latitude": 51.513395,
-    "longitude": -0.089095
-  },
-  {
-    "name": "Bond Street",
-    "zones": "1",
-    "latitude": 51.513362,
-    "longitude": -0.148795
-  },
-  {
     "name": "Blackfriars",
     "zones": "1",
     "latitude": 51.509613,
@@ -3136,12 +2986,6 @@
     "zones": "2/3",
     "latitude": 51.514029,
     "longitude": 0.008025
-  },
-  {
-    "name": "Canary Wharf",
-    "zones": "2",
-    "latitude": 51.503734,
-    "longitude": -0.019121
   },
   {
     "name": "Chalfont & Latimer",
@@ -3442,41 +3286,5 @@
     "zones": "4",
     "latitude": 51.55232,
     "longitude": -0.296642
-  },
-  {
-    "name": "West Ruislip",
-    "zones": "6",
-    "latitude": 51.569721,
-    "longitude": -0.437816
-  },
-  {
-    "name": "Westminster",
-    "zones": "1",
-    "latitude": 51.501603,
-    "longitude": -0.125984
-  },
-  {
-    "name": "Canada Water",
-    "zones": "2",
-    "latitude": 51.498053,
-    "longitude": -0.049667
-  },
-  {
-    "name": "Farringdon",
-    "zones": "1",
-    "latitude": 51.520214,
-    "longitude": -0.105054
-  },
-  {
-    "name": "Moorgate",
-    "zones": "1",
-    "latitude": 51.518338,
-    "longitude": -0.088627
-  },
-  {
-    "name": "Whitechapel",
-    "zones": "2",
-    "latitude": 51.519498,
-    "longitude": -0.059858
   }
 ]

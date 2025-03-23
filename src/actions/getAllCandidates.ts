@@ -15,12 +15,19 @@ function getAllCandidates(stations: StationType[]) {
   );
 
   // Filter stations that are further away than the radius
-  const candidates = allStations.filter((station) => {
-    const distance = getDistance(lat, lon, station.latitude, station.longitude);
-    return distance <= radius; // Keep stations within the radius
-  });
+  const candidates = allStations.filter(
+    (station: { latitude: number; longitude: number }) => {
+      const distance = getDistance(
+        lat,
+        lon,
+        station.latitude,
+        station.longitude
+      );
+      return distance <= radius; // Keep stations within the radius
+    }
+  );
 
-  return [candidates];
+  return candidates;
 }
 
 export default getAllCandidates;
