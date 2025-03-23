@@ -3,7 +3,17 @@ import fetchNearbyPlaces from "../actions/fetchNearbyPlaces";
 import getAllCandidates from "../actions/getAllCandidates";
 import { StationType } from "../types/Types";
 import Loading from "./Loading";
-import { Badge, Button, Group, Paper, Stack, Title, Text } from "@mantine/core";
+import {
+  Badge,
+  Button,
+  Group,
+  Paper,
+  Stack,
+  Title,
+  Text,
+  Space,
+  ScrollArea,
+} from "@mantine/core";
 import { IconArrowLeft, IconStar } from "@tabler/icons-react";
 
 interface ResultsProps {
@@ -14,7 +24,9 @@ interface ResultsProps {
 export default function Results({ stations, setView }: ResultsProps) {
   const [nearbyPlaces, setNearbyPlaces] = useState<any[] | null>(null); // Store the fetched places
   const [loading, setLoading] = useState<boolean>(true); // Add loading state
-  const [allCandidates, setAllCandidates] = useState<any[] | null>(null);
+  const [allCandidates, setAllCandidates] = useState<StationType[] | null>(
+    null
+  );
 
   useEffect(() => {
     const candidates = getAllCandidates(stations);
@@ -53,23 +65,29 @@ export default function Results({ stations, setView }: ResultsProps) {
     return <Loading />;
   }
 
-  console.log(nearbyPlaces);
-
   return (
     <Stack>
-      {nearbyPlaces.map((item) => (
-        <Paper shadow="xs" p="xl">
+      {allCandidates && (
+        <Title order={4}>Restaurants around {allCandidates[0].name}</Title>
+      )}
+      <Paper shadow="sm" p="lg" w="30em">
+        <ScrollArea h="30em" offsetScrollbars>
           <Stack>
-            <Group justify="space-between">
-              <Title order={5}>{item.displayName.text}</Title>
-              <Badge color="yellow" leftSection={<IconStar size={12} />}>
-                {item.rating}
-              </Badge>
-            </Group>
-            <Text>{item.formattedAddress}</Text>
+            {nearbyPlaces.map((item) => (
+              <>
+                <Group justify="space-between">
+                  <Title order={5}>{item.displayName.text}</Title>
+                  <Badge color="yellow" leftSection={<IconStar size={12} />}>
+                    {item.rating}
+                  </Badge>
+                </Group>
+                <Text pl="sm">{item.formattedAddress}</Text>
+              </>
+            ))}
           </Stack>
-        </Paper>
-      ))}
+        </ScrollArea>
+      </Paper>
+      <Space h="2em" />
       <Button
         onClick={() => (setView("inputs"), setAllCandidates(null))}
         w="7em"
