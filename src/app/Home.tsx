@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Center, Stack, Title, Space, Flex } from "@mantine/core";
+import React, { useState, useEffect } from "react";
+import { Stack, Title, Space, Flex } from "@mantine/core";
 import getTubeStations from "../actions/getTubeStations";
 import Inputs from "./Inputs";
 import Results from "./Results";
