@@ -3,7 +3,7 @@ import { StationType } from "../types/Types";
 import Loading from "./Loading";
 import axios from "axios";
 
-import { Button, Paper, Stack, Text, Space } from "@mantine/core";
+import { Button, Paper, Stack, Text, Space, Title, Group } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import React from "react";
 
@@ -13,11 +13,12 @@ interface ResultsProps {
 }
 interface MeetingPointType {
   fair_node: string;
-  travel_times: {
-    [key: string]: {
+  travel_times: [
+    {
+      station: string;
       travel_time: number;
-    };
-  };
+    }
+  ];
 }
 
 export default function Results({ stations, setView }: ResultsProps) {
@@ -59,7 +60,27 @@ export default function Results({ stations, setView }: ResultsProps) {
   return (
     <Stack>
       <Paper shadow="sm" p="lg" w="30em">
-        {meetingPoint && <Text>Your favourite meeting point: {fairNode}</Text>}
+        {meetingPoint && (
+          <Group>
+            <Text size="xl" fw={900}>
+              Your favourite meeting point:
+            </Text>
+            <Text
+              size="xl"
+              fw="bold"
+              variant="gradient"
+              gradient={{ from: "blue", to: "teal", deg: 90 }}
+            >
+              {fairNode}
+            </Text>
+          </Group>
+        )}
+        {meetingPoint?.travel_times.map((row) => (
+          <Group>
+            <Text>From {row.station}: </Text>
+            <Text fw="bold">{row.travel_time} min</Text>
+          </Group>
+        ))}
       </Paper>
       <Space h="2em" />
       <Button
