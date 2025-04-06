@@ -8,8 +8,9 @@ export interface StopPointType {
 }
 
 export interface StationType {
-  name: string;
-  zones: string;
-  latitude: number;
-  longitude: number;
+  commonName: string;
+  stationNaptan: string;
+  lat: number;
+  lon: number;
+  modes: string[];
 }

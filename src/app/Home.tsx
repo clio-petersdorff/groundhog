@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Stack, Title, Space, Flex } from "@mantine/core";
-import getTubeStations from "../actions/getTubeStations";
+import axios from "axios";
 import Inputs from "./Inputs";
 import Results from "./Results";
-
-interface StationType {
-  name: string;
-  zones: string;
-  latitude: number;
-  longitude: number;
-}
+import { StationType } from "../types/Types";
 
 export default function Home() {
-  const [allStations, setAllStations] = useState<StationType[]>([]);
-  const [selectedStations, setSelectedStations] = useState<StationType[]>([]); // Changed to store StationType
   const [view, setView] = useState<string>("inputs");
+  const [allStations, setAllStations] = useState<StationType[]>([]);
+  const [selectedStations, setSelectedStations] = useState<StationType[]>([
+    { commonName: "", stationNaptan: "", lat: 0, lon: 0, modes: [] },
+    { commonName: "", stationNaptan: "", lat: 0, lon: 0, modes: [] },
+  ]);
 
-  // Fetch stations on component mount
   useEffect(() => {
-    const fetchStations = async () => {
-      const fetchedStations = await getTubeStations();
-      setAllStations(fetchedStations);
+    // Get all station names
+    const fetchAPI = async () => {
+      const response = await axios.get("http://localhost:8000/api/stations");
+      setAllStations(response.data);
     };
 
-    fetchStations();
+    fetchAPI();
   }, []);
 
   return (
@@ -32,7 +29,7 @@ export default function Home() {
         <Space h="3em" />
 
         <Title order={2} ta="center">
-          PubHour
+          Centre Point
         </Title>
         <Space h="3em" />
         {view === "inputs" && (
