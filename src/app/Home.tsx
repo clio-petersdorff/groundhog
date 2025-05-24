@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Stack, Title, Space, Flex } from "@mantine/core";
 import axios from "axios";
-import Inputs from "./Inputs";
+import Inputs from "./Components/InputView/Inputs";
 import Results from "./Results";
 import { StationType } from "../types/Types";
+import HowToGuide from "./Components/HowToGuide/HowToGuide";
 
 export default function Home() {
-  const [view, setView] = useState<string>("inputs");
+  const [view, setView] = useState<string>("how-to-guide");
   const [allStations, setAllStations] = useState<StationType[]>([]);
   const [selectedStations, setSelectedStations] = useState<StationType[]>([
     { commonName: "", stationNaptan: "", lat: 0, lon: 0, modes: [] },
@@ -25,13 +26,15 @@ export default function Home() {
 
   return (
     <Flex gap="xl" justify="center" align="center" direction="column">
-      <Stack w="30em">
+      <Stack w="30em" gap="xl">
         <Space h="3em" />
 
         <Title order={2} ta="center">
           Centre Point
         </Title>
-        <Space h="3em" />
+
+        {view === "how-to-guide" && <HowToGuide setView={setView} />}
+
         {view === "inputs" && (
           <Inputs
             setView={setView}

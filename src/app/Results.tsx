@@ -6,6 +6,7 @@ import axios from "axios";
 import { Button, Paper, Stack, Text, Space, Title, Group } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import React from "react";
+import NotFound from "./Components/NotFound/NotFount";
 
 interface ResultsProps {
   stations: StationType[];
@@ -57,10 +58,15 @@ export default function Results({ stations, setView }: ResultsProps) {
     return <Loading />;
   }
 
+  if (meetingPoint === null) {
+    <NotFound />;
+  }
+
+  console.log(meetingPoint);
   return (
     <Stack>
-      <Paper shadow="sm" p="lg" w="30em">
-        {meetingPoint && (
+      {meetingPoint ? (
+        <Paper shadow="sm" p="lg" w="30em">
           <Group>
             <Text size="xl" fw={900}>
               Your favourite meeting point:
@@ -74,14 +80,17 @@ export default function Results({ stations, setView }: ResultsProps) {
               {fairNode}
             </Text>
           </Group>
-        )}
-        {meetingPoint?.travel_times.map((row) => (
-          <Group>
-            <Text>From {row.station}: </Text>
-            <Text fw="bold">{row.travel_time} min</Text>
-          </Group>
-        ))}
-      </Paper>
+
+          {meetingPoint?.travel_times.map((row) => (
+            <Group>
+              <Text>From {row.station}: </Text>
+              <Text fw="bold">{row.travel_time} min</Text>
+            </Group>
+          ))}
+        </Paper>
+      ) : (
+        <NotFound />
+      )}
       <Space h="2em" />
       <Button
         onClick={() => setView("inputs")}

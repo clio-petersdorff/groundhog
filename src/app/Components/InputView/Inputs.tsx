@@ -1,7 +1,9 @@
-import { Button, Center, Group, Select, Space } from "@mantine/core";
-import { StationType } from "../types/Types";
+import { Button, Center, Group, SegmentedControl, Space } from "@mantine/core";
+import { StationType } from "../../../types/Types";
 import { IconArrowRight } from "@tabler/icons-react";
-import React from "react";
+import React, { useState } from "react";
+import StationInputs from "./StationInputs";
+import AddressInputs from "./AddressInputs";
 
 interface InputsProps {
   allStations: StationType[];
@@ -16,17 +18,7 @@ export default function Inputs({
   selectedStations,
   setSelectedStations,
 }: InputsProps) {
-  // Handle station selection
-  const handleSelect = (value: string | null, index: number) => {
-    const station = allStations.find((station) => station.commonName === value); // Find the full station object by name
-    if (station) {
-      setSelectedStations((prevState: StationType[]) => {
-        const newSelectedStations = [...prevState];
-        newSelectedStations[index] = station;
-        return newSelectedStations;
-      });
-    }
-  };
+  const [searchType, setSearchType] = useState<string>("station");
 
   // Add a new select input
   const handleAddSelect = () => {
@@ -37,19 +29,28 @@ export default function Inputs({
 
   return (
     <>
-      {/* Dynamic selects based on the current number of selections */}
-      {selectedStations.map((station, index) => (
-        <Select
-          key={index}
-          label={`Station ${index + 1}`}
-          value={selectedStations[index].commonName || ""}
-          onChange={(value) => handleSelect(value, index)}
-          data={allStations.map((item) => item.commonName)}
-          placeholder={`Select station ${index + 1}`}
-          searchable
-          disabled={selectedStations.length > 5 && !selectedStations[index]} // Disable select when limit is reached
-        />
-      ))}
+      <SegmentedControl
+        fullWidth
+        value={searchType}
+        onChange={setSearchType}
+        data={[
+          { label: "Search by station", value: "station" },
+          { label: "Search by address", value: "address" },
+        ]}
+      />
+
+      {
+        // Render inputs based on search type
+        searchType === "station" ? (
+          <StationInputs
+            allStations={allStations}
+            selectedStations={selectedStations}
+            setSelectedStations={setSelectedStations}
+          />
+        ) : (
+          <AddressInputs />
+        )
+      }
 
       {/* Button to add more selects up to 5 */}
       <Center>
