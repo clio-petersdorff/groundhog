@@ -1,5 +1,14 @@
 import React from "react";
-import { Box, Button, Flex, List, Paper, Stack, Text } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Flex,
+  Image,
+  List,
+  Paper,
+  Stack,
+  Text,
+} from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 
 export default function HowToGuide({
@@ -11,7 +20,7 @@ export default function HowToGuide({
     <Stack gap="3em">
       <Paper shadow="sm" radius="lg" withBorder p="xl">
         <Stack>
-          <Text fw="bold">How to use MiddlePoint</Text>
+          <Text fw="bold">How to use MidPoint</Text>
           <List spacing="sm">
             <List.Item>
               Enter your and your friends' street address or nearest tube or
@@ -28,14 +37,16 @@ export default function HowToGuide({
         </Stack>
       </Paper>
 
+      <Image src="src/public/running_right.svg" h="10em" w="7em" />
+
       <Flex justify="flex-end">
         <Button
-          w="7em"
+          w="10em"
           color="cyan"
           rightSection={<IconArrowRight size={14} />}
           onClick={() => setView("inputs")}
         >
-          Next
+          Get started
         </Button>
       </Flex>
     </Stack>

@@ -1,0 +1,16 @@
+export const lineToColour = new Map<string, string>([
+  ["bakerloo", "#A0522D"],
+  ["central", "#DC241F"],
+  ["circle", "#FFD300"],
+  ["district", "#007229"],
+  ["hammersmith-city", "#F3A9BB"],
+  ["jubilee", "#A0A5A9"],
+  ["metropolitan", "#9B0056"],
+  ["northern", "#000000"],
+  ["piccadilly", "#003688"],
+  ["victoria", "#0098D4"],
+  ["waterloo-city", "#76D0BD"],
+  ["dlr", "#00AFAD"],
+  ["windrush", "#d22630"],
+  ["elizabeth", "#6950A1"],
+]);

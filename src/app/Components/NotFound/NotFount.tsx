@@ -4,15 +4,15 @@ import React from "react";
 export default function NotFound() {
   return (
     <Paper shadow="0" radius="lg" withBorder p="xl">
-      <Stack align="center" gap="xl">
+      <Stack align="center">
         <Title order={5}>
           Hmm... I couldn&apos;t find a route - try again with a different
           address.
         </Title>
         <Image
-          src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTY1M2t5N3pqbWF6aXlkenJkMGhub3BycnN2M2Q3MnZjNjhic2Q2YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z5xk7fGO5FjjTElnpT/giphy.gif"
+          src="src/public/sad_robot.png"
           alt="No route found"
-          w="80%"
+          w="60%"
           h="auto"
           radius="md"
         />

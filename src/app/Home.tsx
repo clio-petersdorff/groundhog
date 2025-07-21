@@ -18,7 +18,15 @@ export default function Home() {
     // Get all station names
     const fetchAPI = async () => {
       const response = await axios.get("http://localhost:8000/api/stations");
-      setAllStations(response.data);
+      const uniqueStations: StationType[] = Array.from(
+        new Map(
+          (response.data as StationType[]).map((station) => [
+            station.commonName,
+            station,
+          ])
+        ).values()
+      );
+      setAllStations(uniqueStations);
     };
 
     fetchAPI();
@@ -43,6 +51,7 @@ export default function Home() {
             setSelectedStations={setSelectedStations}
           />
         )}
+
         {view === "results" && (
           <Results stations={selectedStations} setView={setView} />
         )}
