@@ -53,7 +53,11 @@ export default function Home() {
         )}
 
         {view === "results" && (
-          <Results stations={selectedStations} setView={setView} />
+          <Results
+            allStations={allStations}
+            stations={selectedStations}
+            setView={setView}
+          />
         )}
       </Stack>
     </Flex>

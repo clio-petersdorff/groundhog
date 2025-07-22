@@ -21,10 +21,15 @@ import { lineToColour } from "../constants/colourMap";
 
 interface ResultsProps {
   stations: StationType[];
+  allStations: StationType[];
   setView: (view: string) => void;
 }
 
-export default function Results({ stations, setView }: ResultsProps) {
+export default function Results({
+  stations,
+  allStations,
+  setView,
+}: ResultsProps) {
   const [loading, setLoading] = useState<boolean>(true); // Add loading state
   const [travelTimes, setTravelTimes] = useState<TravelTimeType[][] | null>([]);
   const [fairNodes, setFairNodes] = useState<FairNodeType[] | null>([]);
@@ -77,10 +82,22 @@ export default function Results({ stations, setView }: ResultsProps) {
             </Group>
             <Group>
               {node.map((row, j) => (
-                <Paper key={`row-${i}-${j}`} p="sm" bg="gray.1">
-                  <Text>{row.fromStation}</Text>
-                  <Text fw="bold">{row.travel_time} minutes</Text>
-                  <List>
+                <Paper
+                  key={`row-${i}-${j}`}
+                  p="sm"
+                  bg="gray.1"
+                  w="30%"
+                  // h="15em"
+                >
+                  <Text size="sm">
+                    {allStations.find(
+                      (station) => station.stationNaptan === row.fromStation
+                    )?.commonName ?? "can't find name"}
+                  </Text>
+                  <Text size="sm" fw="bold">
+                    {row.travel_time} minutes
+                  </Text>
+                  <List size="sm">
                     {row.route.map((pathItem) => (
                       <List.Item
                         key={pathItem.line}
