@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Stack, Title, Space, Flex } from "@mantine/core";
 import axios from "axios";
-import Inputs from "./Inputs";
+import Inputs from "./Components/InputView/Inputs";
 import Results from "./Results";
 import { StationType } from "../types/Types";
+import HowToGuide from "./Components/HowToGuide/HowToGuide";
 
 export default function Home() {
-  const [view, setView] = useState<string>("inputs");
+  const [view, setView] = useState<string>("how-to-guide");
   const [allStations, setAllStations] = useState<StationType[]>([]);
   const [selectedStations, setSelectedStations] = useState<StationType[]>([
     { commonName: "", stationNaptan: "", lat: 0, lon: 0, modes: [] },
@@ -17,7 +18,15 @@ export default function Home() {
     // Get all station names
     const fetchAPI = async () => {
       const response = await axios.get("http://localhost:8000/api/stations");
-      setAllStations(response.data);
+      const uniqueStations: StationType[] = Array.from(
+        new Map(
+          (response.data as StationType[]).map((station) => [
+            station.commonName,
+            station,
+          ])
+        ).values()
+      );
+      setAllStations(uniqueStations);
     };
 
     fetchAPI();
@@ -25,13 +34,13 @@ export default function Home() {
 
   return (
     <Flex gap="xl" justify="center" align="center" direction="column">
-      <Stack w="30em">
-        <Space h="3em" />
-
+      <Stack w="25em" gap="xl" style={{ position: "relative" }} p="sm" py="md">
         <Title order={2} ta="center">
           Centre Point
         </Title>
-        <Space h="3em" />
+
+        {view === "how-to-guide" && <HowToGuide setView={setView} />}
+
         {view === "inputs" && (
           <Inputs
             setView={setView}
@@ -40,8 +49,13 @@ export default function Home() {
             setSelectedStations={setSelectedStations}
           />
         )}
+
         {view === "results" && (
-          <Results stations={selectedStations} setView={setView} />
+          <Results
+            allStations={allStations}
+            stations={selectedStations}
+            setView={setView}
+          />
         )}
       </Stack>
     </Flex>
