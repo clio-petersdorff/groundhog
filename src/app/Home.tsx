@@ -34,9 +34,7 @@ export default function Home() {
 
   return (
     <Flex gap="xl" justify="center" align="center" direction="column">
-      <Stack w="30em" gap="xl">
-        <Space h="3em" />
-
+      <Stack w="25em" gap="xl" style={{ position: "relative" }} p="sm" py="md">
         <Title order={2} ta="center">
           Centre Point
         </Title>
