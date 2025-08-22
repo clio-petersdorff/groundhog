@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Stack, Title, Space, Flex } from "@mantine/core";
+import { Stack, Title, Space, Flex, Text } from "@mantine/core";
 import axios from "axios";
 import Inputs from "./Components/InputView/Inputs";
 import Results from "./Results";
@@ -34,7 +34,14 @@ export default function Home() {
 
   return (
     <Flex gap="xl" justify="center" align="center" direction="column">
-      <Stack w="25em" gap="xl" style={{ position: "relative" }} p="sm" py="md">
+      <Stack
+        w="25em"
+        gap="xl"
+        style={{ position: "relative" }}
+        p="sm"
+        py="md"
+        mih="100vh"
+      >
         <Title order={2} ta="center">
           Centre Point
         </Title>
@@ -57,6 +64,15 @@ export default function Home() {
             setView={setView}
           />
         )}
+        <Space h="md" />
+        <Text
+          fw="bold"
+          size="xs"
+          c="teal"
+          style={{ position: "absolute", bottom: 0, left: 0, padding: "1em" }}
+        >
+          An app by Clio & Hagen
+        </Text>
       </Stack>
     </Flex>
   );

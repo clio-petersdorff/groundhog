@@ -15,7 +15,13 @@ import {
   Divider,
   ActionIcon,
 } from "@mantine/core";
-import { IconArrowLeft, IconArrowRight, IconRouteX } from "@tabler/icons-react";
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconRouteX,
+  IconTrophy,
+  IconTrophyFilled,
+} from "@tabler/icons-react";
 import React from "react";
 import NotFound from "./Components/NotFound/NotFount";
 import { lineToColour } from "../constants/colourMap";
@@ -41,14 +47,11 @@ export default function Results({
       const data = {
         stations: selectedStations.map(({ stationNaptan }) => stationNaptan),
       };
-
       try {
         const response = await axios.post(
           "http://localhost:8000/api/route",
           data
         );
-
-        console.log("Response data:", response.data);
         setFairNodes(response.data.fair_nodes);
         setTravelTimes(response.data.travel_times);
       } catch (error) {
@@ -84,9 +87,12 @@ export default function Results({
 
           {travelTimes.map((node, i) => (
             <Stack key={i}>
-              <Group>
-                <Title order={5}>Fair station {i + 1}:</Title>
-                <Text>{node[0].fairStation}</Text>
+              <Group gap="sm" wrap="nowrap">
+                {i === 0 && <IconTrophyFilled size={24} color="gold" />}
+                <Text size="sm" fw="bold" w="90%">
+                  Fair station {i + 1}: {""}
+                  <Text span>{node[0].fairStation}</Text>
+                </Text>
               </Group>
 
               {node.map((row) =>
@@ -129,7 +135,7 @@ export default function Results({
                 ) : (
                   <Stack>
                     <Paper withBorder p="xs" onClick={() => setExpand(row)}>
-                      <Group gap="xl">
+                      <Group gap="xl" wrap="nowrap">
                         <Stack gap={0} align="center" w="3em">
                           <Title order={4} p={0}>
                             {Number(row.travel_time).toFixed(0)}
