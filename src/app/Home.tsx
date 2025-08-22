@@ -71,7 +71,7 @@ export default function Home() {
           c="teal"
           style={{ position: "absolute", bottom: 0, left: 0, padding: "1em" }}
         >
-          An app by Clio & Hagen
+          An app by Clio & Hagen & Chris
         </Text>
       </Stack>
     </Flex>
