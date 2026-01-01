@@ -11,11 +11,11 @@ import {
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 
-export default function HowToGuide({
-  setView,
-}: {
+interface HowToGuideProps {
   setView: (view: string) => void;
-}) {
+}
+
+export default function HowToGuide({ setView }: HowToGuideProps) {
   return (
     <Stack gap="3em">
       <Paper shadow="sm" radius="lg" withBorder p="xl">
