@@ -43,7 +43,7 @@ export default function Home() {
         mih="100vh"
       >
         <Title order={2} ta="center">
-          Centre Point
+          TubeFair
         </Title>
 
         {view === "how-to-guide" && <HowToGuide setView={setView} />}

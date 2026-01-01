@@ -20,7 +20,7 @@ export default function HowToGuide({
     <Stack gap="3em">
       <Paper shadow="sm" radius="lg" withBorder p="xl">
         <Stack>
-          <Text fw="bold">How to use MidPoint</Text>
+          <Text fw="bold">How to use TubeFair</Text>
           <List spacing="sm">
             <List.Item>
               Enter your and your friends' street address or nearest tube or
