@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Flex,
-  Image,
-  List,
-  Paper,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Button, Flex, Image, List, Paper, Stack, Text } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 
 export default function HowToGuide({
@@ -37,7 +28,7 @@ export default function HowToGuide({
         </Stack>
       </Paper>
 
-      <Image src="src/public/running_right.svg" h="10em" w="7em" />
+      <Image src="/running_right.svg" h="10em" w="7em" />
 
       <Flex justify="flex-end">
         <Button

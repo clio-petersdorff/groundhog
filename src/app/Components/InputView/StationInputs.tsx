@@ -1,13 +1,6 @@
-import {
-  ActionIcon,
-  Button,
-  Center,
-  Group,
-  Select,
-  Space,
-} from "@mantine/core";
+import { ActionIcon, Group, Select } from "@mantine/core";
 import { StationType } from "../../../types/Types";
-import { IconArrowRight, IconX } from "@tabler/icons-react";
+import { IconX } from "@tabler/icons-react";
 import React from "react";
 
 interface InputsProps {

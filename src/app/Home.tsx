@@ -5,6 +5,7 @@ import Inputs from "./Components/InputView/Inputs";
 import Results from "./Results";
 import { StationType } from "../types/Types";
 import HowToGuide from "./Components/HowToGuide/HowToGuide";
+import { getApiUrl } from "../config/env";
 
 export default function Home() {
   const [view, setView] = useState<string>("how-to-guide");
@@ -17,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     // Get all station names
     const fetchAPI = async () => {
-      const response = await axios.get("http://localhost:8000/api/stations");
+      const response = await axios.get(getApiUrl("STATIONS"));
       const uniqueStations: StationType[] = Array.from(
         new Map(
           (response.data as StationType[]).map((station) => [

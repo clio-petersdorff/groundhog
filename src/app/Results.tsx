@@ -18,12 +18,12 @@ import {
   IconArrowLeft,
   IconArrowRight,
   IconRouteX,
-  IconTrophy,
   IconTrophyFilled,
 } from "@tabler/icons-react";
 import React from "react";
-import NotFound from "./Components/NotFound/NotFount";
+import NotFound from "./Components/NotFound/NotFound";
 import { lineToColour } from "../constants/colourMap";
+import { getApiUrl } from "../config/env";
 
 interface ResultsProps {
   stations: StationType[];
@@ -42,32 +42,33 @@ export default function Results({
   const [expand, setExpand] = useState<TravelTimeType>({} as TravelTimeType);
 
   useEffect(() => {
-    async function getResults(selectedStations) {
+    async function getResults(selectedStations: StationType[]) {
       const data = {
         stations: selectedStations.map(({ stationNaptan }) => stationNaptan),
       };
       try {
-        const response = await axios.post(
-          "http://localhost:8000/api/route",
-          data
-        );
+        setLoading(true);
+        const response = await axios.post(getApiUrl("ROUTE"), data);
         setFairNodes(response.data.fair_nodes);
         setTravelTimes(response.data.travel_times);
       } catch (error) {
         console.error("Error fetching results:", error);
+        setFairNodes(null);
+        setTravelTimes(null);
+      } finally {
+        setLoading(false);
       }
     }
 
     getResults(stations);
-    setLoading(false);
-  }, []);
+  }, [stations]);
 
   if (loading) {
     return <Loading />;
   }
 
-  if (fairNodes === null) {
-    <NotFound />;
+  if (fairNodes === null || travelTimes === null) {
+    return <NotFound />;
   }
 
   return (
