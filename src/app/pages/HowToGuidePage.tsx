@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
-import HowToGuide from "../Components/HowToGuide/HowToGuide";
+import HowToGuide from "../components/HowToGuide/HowToGuide";
 
 export default function HowToGuidePage() {
   const navigate = useNavigate();

@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
         gap="xl"
         style={{ position: "relative" }}
         p="sm"
-        py="md"
+        py="3em"
         mih="100vh"
       >
         <Title order={2} ta="center">

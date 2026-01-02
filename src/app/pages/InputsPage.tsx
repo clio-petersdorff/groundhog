@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
-import Inputs from "../Components/InputView/Inputs";
+import Inputs from "../components/InputView/Inputs";
 import { useStations } from "../context/StationsContext";
 
 export default function InputsPage() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
-import Results from "../Results";
+import Results from "../components/Results/Results";
 import { useStations } from "../context/StationsContext";
 
 export default function ResultsPage() {
