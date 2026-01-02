@@ -38,7 +38,7 @@ export default function HowToGuide({ setView }: HowToGuideProps) {
       </Paper>
 
       <Center>
-        <Image src="/src/public/running_right.svg" h="10em" w="7em" />
+        <Image src="running_right.svg" h="10em" w="7em" />
       </Center>
 
       <Flex justify="flex-end">

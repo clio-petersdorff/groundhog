@@ -10,7 +10,7 @@ export default function NotFound() {
           different address.
         </Title>
         <Image
-          src="src/public/sad_robot.png"
+          src="sad_robot.png"
           alt="No route found"
           w="60%"
           h="auto"
