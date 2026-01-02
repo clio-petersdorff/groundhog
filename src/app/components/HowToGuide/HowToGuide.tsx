@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  Box,
   Button,
+  Center,
   Flex,
   Image,
   List,
@@ -11,16 +11,16 @@ import {
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 
-export default function HowToGuide({
-  setView,
-}: {
+interface HowToGuideProps {
   setView: (view: string) => void;
-}) {
+}
+
+export default function HowToGuide({ setView }: HowToGuideProps) {
   return (
     <Stack gap="3em">
       <Paper shadow="sm" radius="lg" withBorder p="xl">
         <Stack>
-          <Text fw="bold">How to use MidPoint</Text>
+          <Text fw="bold">How to use TubeFair</Text>
           <List spacing="sm">
             <List.Item>
               Enter your and your friends' street address or nearest tube or
@@ -37,7 +37,9 @@ export default function HowToGuide({
         </Stack>
       </Paper>
 
-      <Image src="src/public/running_right.svg" h="10em" w="7em" />
+      <Center>
+        <Image src="/src/public/running_right.svg" h="10em" w="7em" />
+      </Center>
 
       <Flex justify="flex-end">
         <Button
