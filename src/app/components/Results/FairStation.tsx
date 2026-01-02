@@ -1,9 +1,7 @@
 import { Paper, Stack } from "@mantine/core";
 import { StationType, TravelTimeType } from "../../../types/Types";
-
 import HeroCard from "./HeroCard";
 import UserTravelCard from "./UserTravelCard";
-import React from "react";
 
 interface FairStationProps {
   stationData: TravelTimeType[];

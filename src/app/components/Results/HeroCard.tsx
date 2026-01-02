@@ -1,5 +1,4 @@
-import { Paper, Stack, Text, Title, Group, Badge } from "@mantine/core";
-import React from "react";
+import { Stack, Title, Group, Badge } from "@mantine/core";
 
 interface HeroCardProps {
   stationName: string;

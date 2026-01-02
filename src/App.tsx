@@ -2,7 +2,6 @@ import "@mantine/core/styles.css";
 
 import { MantineProvider } from "@mantine/core";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import React from "react";
 import Layout from "./app/components/Layout/Layout";
 import { StationsProvider } from "./app/context/StationsContext";
 import HowToGuidePage from "./app/pages/HowToGuidePage";

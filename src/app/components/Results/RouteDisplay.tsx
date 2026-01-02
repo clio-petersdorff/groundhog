@@ -1,7 +1,6 @@
 import { Group, Text, Badge, ColorSwatch, Stack } from "@mantine/core";
 import { TravelTimeType } from "../../../types/Types";
 import { lineToColour } from "../../../constants/colourMap";
-import React from "react";
 
 interface RouteDisplayProps {
   route: TravelTimeType["route"];
