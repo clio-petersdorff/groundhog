@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StationType, TravelTimeType } from "../types/Types";
+import { StationType, TravelTimeType } from "../../../types/Types";
 import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
 import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
