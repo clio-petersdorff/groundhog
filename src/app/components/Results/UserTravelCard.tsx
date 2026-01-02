@@ -12,6 +12,7 @@ import { StationType, TravelTimeType } from "../../../types/Types";
 import { lineToColour } from "../../../constants/colourMap";
 import RouteDisplay from "./RouteDisplay";
 import { capitalizeFirstLetter } from "../../actions/helpers";
+import React from "react";
 
 interface UserTravelCardProps {
   travelTime: TravelTimeType;

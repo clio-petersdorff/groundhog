@@ -6,6 +6,7 @@ import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
 import { IconArrowLeft, IconChevronRight } from "@tabler/icons-react";
 import { useResultsData } from "./useResultsData";
 import FairStation from "./FairStation";
+import React from "react";
 
 interface ResultsProps {
   stations: StationType[];
