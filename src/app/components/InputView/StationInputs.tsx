@@ -39,7 +39,7 @@ export default function Inputs({
             placeholder={`Select station for User ${index + 1}`}
             searchable
             disabled={selectedStations.length > 5 && !selectedStations[index]} // Disable select when limit is reached
-            w="20em"
+            w="18em"
           />
           <ActionIcon
             color="red"

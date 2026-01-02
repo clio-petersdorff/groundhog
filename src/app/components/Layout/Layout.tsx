@@ -9,7 +9,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <Flex gap="xl" justify="center" align="center" direction="column">
       <Stack
-        w="25em"
+        w="23em"
         gap="xl"
         style={{ position: "relative" }}
         p="sm"
