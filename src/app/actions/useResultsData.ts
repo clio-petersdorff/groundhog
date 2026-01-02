@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
-import {
-  FairNodeType,
-  StationType,
-  TravelTimeType,
-} from "../../../types/Types";
+import { FairNodeType, StationType, TravelTimeType } from "../../types/Types";
 import axios from "axios";
-import { getApiUrl } from "../../../config/env";
+import { getApiUrl } from "../../config/env";
 
 export function useResultsData(stations: StationType[]) {
   const [loading, setLoading] = useState<boolean>(true);

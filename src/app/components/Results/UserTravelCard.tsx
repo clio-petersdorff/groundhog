@@ -6,6 +6,7 @@ import {
   Group,
   Divider,
   ColorSwatch,
+  Tooltip,
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { StationType, TravelTimeType } from "../../../types/Types";
@@ -40,12 +41,13 @@ export default function UserTravelCard({
     <Paper
       onClick={onToggleExpand}
       withBorder
-      p="md"
+      px="md"
+      py="sm"
       radius="md"
       shadow="sm"
       style={{ cursor: "pointer" }}
     >
-      <Stack>
+      <Stack gap="xs">
         <Group gap="xl" wrap="nowrap">
           <Stack gap={0} align="center" w="3em">
             <Title order={4} p={0}>
@@ -71,20 +73,22 @@ export default function UserTravelCard({
         {isExpanded ? (
           <RouteDisplay route={travelTime.route} showMeetingPoint />
         ) : (
-          <Group gap="xs" wrap="wrap">
-            {travelTime.route.slice().map((pathItem, routeIndex) => (
-              <Group key={routeIndex} gap="xs">
-                <ColorSwatch
-                  color={lineToColour.get(pathItem.line) ?? ""}
-                  size={12}
-                />
-                <Text size="sm">{capitalizeFirstLetter(pathItem.line)}</Text>
-                {routeIndex < travelTime.route.length - 1 && (
-                  <IconArrowRight size={14} />
-                )}
-              </Group>
-            ))}
-          </Group>
+          <Tooltip label="Click to expand" position="right" color="#2D3142">
+            <Group gap="xs" wrap="wrap">
+              {travelTime.route.slice().map((pathItem, routeIndex) => (
+                <Group key={routeIndex} gap="xs">
+                  <ColorSwatch
+                    color={lineToColour.get(pathItem.line) ?? ""}
+                    size={12}
+                  />
+                  <Text size="sm">{capitalizeFirstLetter(pathItem.line)}</Text>
+                  {routeIndex < travelTime.route.length - 1 && (
+                    <IconArrowRight size={14} />
+                  )}
+                </Group>
+              ))}
+            </Group>
+          </Tooltip>
         )}
       </Stack>
     </Paper>

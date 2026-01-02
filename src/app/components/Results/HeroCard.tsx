@@ -1,4 +1,4 @@
-import { Stack, Title, Group, Badge } from "@mantine/core";
+import { Stack, Title, Group, Badge, Text } from "@mantine/core";
 import React from "react";
 
 interface HeroCardProps {
@@ -19,10 +19,10 @@ export default function HeroCard({
       </Title>
       <Group gap="md">
         <Badge size="md" variant="filled" color="cyan">
-          {Math.round(maxTime)}m max
+          max: {Math.round(maxTime)} min
         </Badge>
         <Badge size="md" variant="filled" color="teal">
-          {Math.round(avgTime)} min avg
+          Avg: {Math.round(avgTime)} min
         </Badge>
       </Group>
     </Stack>

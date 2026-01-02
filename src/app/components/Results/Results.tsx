@@ -1,12 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { StationType, TravelTimeType } from "../../../types/Types";
 import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
 import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
 import { IconArrowLeft, IconChevronRight } from "@tabler/icons-react";
-import { useResultsData } from "./useResultsData";
+import { useResultsData } from "../../actions/useResultsData";
 import FairStation from "./FairStation";
-import React from "react";
 
 interface ResultsProps {
   stations: StationType[];

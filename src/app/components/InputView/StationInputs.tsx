@@ -1,6 +1,6 @@
 import { ActionIcon, Group, Select } from "@mantine/core";
 import { StationType } from "../../../types/Types";
-import { IconX } from "@tabler/icons-react";
+import { IconTrash } from "@tabler/icons-react";
 import React from "react";
 
 interface InputsProps {
@@ -30,30 +30,30 @@ export default function Inputs({
     <>
       {/* Dynamic selects based on the current number of selections */}
       {selectedStations.map((station, index) => (
-        <Group key={index} justify="space-between">
+        <Group key={index}>
           <Select
-            label={`Station ${index + 1}`}
+            label={`User ${index + 1}`}
             value={selectedStations[index].commonName || ""}
             onChange={(value) => handleSelect(value, index)}
             data={allStations.map((item) => item.commonName)}
-            placeholder={`Select station ${index + 1}`}
+            placeholder={`Select station for User ${index + 1}`}
             searchable
             disabled={selectedStations.length > 5 && !selectedStations[index]} // Disable select when limit is reached
             w="20em"
           />
           <ActionIcon
-            variant="light"
-            color="cyan"
-            radius="xl"
+            color="red"
+            variant="subtle"
             w="1em"
             h="1em"
+            mt="1.4em"
             onClick={() => {
               setSelectedStations((prevState) =>
                 prevState.filter((_, i) => i !== index)
               );
             }}
           >
-            <IconX size={18} />
+            <IconTrash size={16} />
           </ActionIcon>
         </Group>
       ))}
