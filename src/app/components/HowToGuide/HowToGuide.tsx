@@ -23,16 +23,14 @@ export default function HowToGuide({ setView }: HowToGuideProps) {
           <Text fw="bold">How to use TubeFair</Text>
           <List spacing="sm">
             <List.Item>
-              Enter your and your friends' street address or nearest tube or
-              rail station.
+              Enter your and your friends' nearest Tube, Overground or DLR
+              stations.
             </List.Item>
             <List.Item>
               The app calculates the fairest meeting point for everyone based on
-              shortest travel time.
+              their travel times.
             </List.Item>
-            <List.Item>
-              Supports Tube, Overground, and DLR — powered by live TfL data.
-            </List.Item>
+            <List.Item>Powered by TfL data.</List.Item>
           </List>
         </Stack>
       </Paper>

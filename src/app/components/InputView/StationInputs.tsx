@@ -40,6 +40,9 @@ export default function Inputs({
             searchable
             disabled={selectedStations.length > 5 && !selectedStations[index]} // Disable select when limit is reached
             w="18em"
+            styles={{
+              input: { fontSize: 16 }, // Prevent iOS triggering an automatic zoom when focused
+            }}
           />
           <ActionIcon
             color="red"
