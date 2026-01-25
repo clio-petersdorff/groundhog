@@ -8,6 +8,7 @@ import HowToGuidePage from "./app/pages/HowToGuidePage";
 import InputsPage from "./app/pages/InputsPage";
 import ResultsPage from "./app/pages/ResultsPage";
 import { ROUTES } from "./constants/routes";
+import React from "react";
 
 export default function App() {
   return (

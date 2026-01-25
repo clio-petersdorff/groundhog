@@ -4,26 +4,63 @@ import { IconArrowRight } from "@tabler/icons-react";
 import React, { useState } from "react";
 import StationInputs from "./StationInputs";
 import AddressInputs from "./AddressInputs";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../constants/routes";
+import axios from "axios";
+import { getApiUrl } from "../../../config/env";
+import { logUserEvent } from "../../actions/analytics.ts";
+import Loading from "../Loading/Loading.tsx";
 
 interface InputsProps {
   allStations: StationType[];
-  setView: (view: string) => void;
   selectedStations: StationType[];
   setSelectedStations: React.Dispatch<React.SetStateAction<StationType[]>>;
 }
 
 export default function Inputs({
   allStations,
-  setView,
   selectedStations,
   setSelectedStations,
 }: InputsProps) {
+  const navigate = useNavigate();
   const [searchType, setSearchType] = useState<string>("station");
+  const [loading, setLoading] = useState(false);
 
+  if (loading) {
+    return <Loading />;
+  }
   // Add a new select input
   const handleAddSelect = () => {
     if (selectedStations.length < 5) {
       setSelectedStations([...selectedStations, {} as StationType]); // Add empty object as placeholder
+    }
+  };
+
+  // New function to fetch results before navigating
+  const handleNext = async () => {
+    setLoading(true);
+
+    const stationNaptans = selectedStations
+      .filter((s) => s.commonName)
+      .map((s) => s.stationNaptan);
+
+    setLoading(true); // start loading spinner
+
+    try {
+      logUserEvent(stationNaptans);
+
+      const { data } = await axios.post(getApiUrl("ROUTE"), {
+        stations: stationNaptans,
+      });
+
+      navigate(ROUTES.RESULTS, {
+        state: { travelTimes: data.travel_times, fairNodes: data.fair_nodes },
+      });
+    } catch (err) {
+      console.error(err);
+      // optionally show an error message
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -62,7 +99,7 @@ export default function Inputs({
       <Space h="2em" />
       <Group justify="flex-end">
         <Button
-          onClick={() => setView("results")}
+          onClick={handleNext}
           w="7em"
           color="cyan"
           rightSection={<IconArrowRight size={14} />}
