@@ -17,7 +17,6 @@ export async function logUserEvent(fromStations: string[]) {
       anonId: getAnonId(),
       fromStations,
     });
-    console.log("Logging stuff");
   } catch (err) {
     console.warn("Failed to log user event", err);
   }
