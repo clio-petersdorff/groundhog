@@ -13,11 +13,11 @@ export default function HeroCard({
   avgTime,
 }: HeroCardProps) {
   return (
-    <Stack gap="sm" align="center" p="md">
+    <Stack gap="lg" align="center">
       <Title order={4} ta="center">
-        🎯 {stationName}
+        🎯 {stationName.split("/")[0]}
       </Title>
-      <Group gap="md">
+      <Group gap="md" justify="space-between" w="100%">
         <Badge size="md" variant="filled" color="cyan">
           max: {Math.round(maxTime)} min
         </Badge>

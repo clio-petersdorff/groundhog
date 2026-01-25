@@ -10,12 +10,12 @@ import {
   Text,
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../constants/routes";
 
-interface HowToGuideProps {
-  setView: (view: string) => void;
-}
+export default function HowToGuide() {
+  const navigate = useNavigate();
 
-export default function HowToGuide({ setView }: HowToGuideProps) {
   return (
     <Stack gap="3em">
       <Paper shadow="sm" radius="lg" withBorder p="xl">
@@ -44,7 +44,7 @@ export default function HowToGuide({ setView }: HowToGuideProps) {
           w="10em"
           color="cyan"
           rightSection={<IconArrowRight size={14} />}
-          onClick={() => setView("inputs")}
+          onClick={() => navigate(ROUTES.INPUTS)}
         >
           Get started
         </Button>

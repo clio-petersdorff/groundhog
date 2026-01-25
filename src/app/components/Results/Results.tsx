@@ -1,34 +1,30 @@
 import React, { useState } from "react";
 import { StationType, TravelTimeType } from "../../../types/Types";
-import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
 import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
 import { IconArrowLeft, IconChevronRight } from "@tabler/icons-react";
-import { useResultsData } from "../../actions/useResultsData";
 import FairStation from "./FairStation";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../constants/routes";
 
 interface ResultsProps {
-  stations: StationType[];
   allStations: StationType[];
-  setView: (view: string) => void;
 }
 
-export default function Results({
-  stations,
-  allStations,
-  setView,
-}: ResultsProps) {
-  const { loading, travelTimes, fairNodes } = useResultsData(stations);
+export default function Results({ allStations }: ResultsProps) {
+  const navigate = useNavigate();
+
+  const { state } = useLocation();
+  const { travelTimes } = state;
+
+  if (!travelTimes || travelTimes.length === 0) return <NotFound />;
+
   const [expandedCard, setExpandedCard] = useState<TravelTimeType | null>(null);
   const [expandedStationIndex, setExpandedStationIndex] = useState<
     number | null
   >(null);
 
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (fairNodes === null || travelTimes === null || travelTimes.length === 0) {
+  if (travelTimes === null || travelTimes.length === 0) {
     return <NotFound />;
   }
 
@@ -52,7 +48,7 @@ export default function Results({
   return (
     <Stack>
       <ActionIcon
-        onClick={() => setView("inputs")}
+        onClick={() => navigate(ROUTES.INPUTS)}
         color="cyan"
         variant="light"
         p={0}
