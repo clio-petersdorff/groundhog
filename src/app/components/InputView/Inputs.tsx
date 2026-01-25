@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";
 import axios from "axios";
 import { getApiUrl } from "../../../config/env";
-import { logUserEvent } from "../../actions/analytics.ts";
+import { getDeviceInfo, logUserEvent } from "../../actions/analytics.ts";
 import Loading from "../Loading/Loading.tsx";
 
 interface InputsProps {
@@ -47,7 +47,10 @@ export default function Inputs({
     setLoading(true); // start loading spinner
 
     try {
-      logUserEvent(stationNaptans);
+      const deviceInfo = getDeviceInfo();
+      console.log(deviceInfo);
+
+      logUserEvent(stationNaptans, deviceInfo);
 
       const { data } = await axios.post(getApiUrl("ROUTE"), {
         stations: stationNaptans,

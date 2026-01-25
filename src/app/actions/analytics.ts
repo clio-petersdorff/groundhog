@@ -11,13 +11,30 @@ export function getAnonId(): string {
   return id;
 }
 
-export async function logUserEvent(fromStations: string[]) {
+export async function logUserEvent(fromStations: string[], deviceInfo?: any) {
   try {
     await axios.post(getApiUrl("USER_EVENT"), {
       anonId: getAnonId(),
       fromStations,
+      deviceInfo,
     });
   } catch (err) {
     console.warn("Failed to log user event", err);
   }
+}
+
+export function getDeviceInfo() {
+  return {
+    userAgent: navigator.userAgent, // browser + OS info
+    deviceType: getDeviceTypeFromScreen(),
+    language: navigator.language,
+  };
+}
+
+export function getDeviceTypeFromScreen(): "mobile" | "tablet" | "desktop" {
+  const width = Math.min(window.screen.width, window.screen.height);
+
+  if (width < 768) return "mobile";
+  if (width < 1024) return "tablet";
+  return "desktop";
 }
