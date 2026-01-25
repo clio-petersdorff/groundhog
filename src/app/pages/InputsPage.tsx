@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import Inputs from "../components/InputView/Inputs";
 import { useStations } from "../context/StationsContext";
 

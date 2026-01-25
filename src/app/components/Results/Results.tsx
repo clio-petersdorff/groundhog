@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import { StationType, TravelTimeType } from "../../../types/Types";
-import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
 import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
 import { IconArrowLeft, IconChevronRight } from "@tabler/icons-react";
-import { useResultsData } from "../../actions/useResultsData";
 import FairStation from "./FairStation";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";
 
 interface ResultsProps {
-  stations: StationType[];
   allStations: StationType[];
 }
 
-export default function Results({ stations, allStations }: ResultsProps) {
+export default function Results({ allStations }: ResultsProps) {
   const navigate = useNavigate();
 
   const { state } = useLocation();

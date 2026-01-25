@@ -3,7 +3,7 @@ import Results from "../components/Results/Results";
 import { useStations } from "../context/StationsContext";
 
 export default function ResultsPage() {
-  const { allStations, selectedStations } = useStations();
+  const { allStations } = useStations();
 
-  return <Results allStations={allStations} stations={selectedStations} />;
+  return <Results allStations={allStations} />;
 }
