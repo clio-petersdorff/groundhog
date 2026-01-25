@@ -15,7 +15,7 @@ export default function HeroCard({
   return (
     <Stack gap="sm" align="center" p="md">
       <Title order={4} ta="center">
-        🎯 {stationName}
+        🎯 {stationName.split("/")[0]}
       </Title>
       <Group gap="md">
         <Badge size="md" variant="filled" color="cyan">
