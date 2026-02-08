@@ -32,13 +32,13 @@ export default function Inputs({
       {selectedStations.map((station, index) => (
         <Group key={index}>
           <Select
-            label={`User ${index + 1}`}
+            label={`Person ${index + 1}`}
             value={selectedStations[index].commonName || ""}
             onChange={(value) => handleSelect(value, index)}
             data={allStations.map((item) => item.commonName)}
-            placeholder={`Select station for User ${index + 1}`}
+            placeholder={`Select station for person ${index + 1}`}
             searchable
-            disabled={selectedStations.length > 5 && !selectedStations[index]} // Disable select when limit is reached
+            disabled={selectedStations.length > 6 && !selectedStations[index]} // Disable select when limit is reached
             w="18em"
             styles={{
               input: { fontSize: 16 }, // Prevent iOS triggering an automatic zoom when focused

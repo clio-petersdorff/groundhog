@@ -31,7 +31,7 @@ export default function Inputs({
   }
   // Add a new select input
   const handleAddSelect = () => {
-    if (selectedStations.length < 5) {
+    if (selectedStations.length < 6) {
       setSelectedStations([...selectedStations, {} as StationType]); // Add empty object as placeholder
     }
   };
@@ -48,8 +48,6 @@ export default function Inputs({
 
     try {
       const deviceInfo = getDeviceInfo();
-      console.log(deviceInfo);
-
       logUserEvent(stationNaptans, deviceInfo);
 
       const { data } = await axios.post(getApiUrl("ROUTE"), {

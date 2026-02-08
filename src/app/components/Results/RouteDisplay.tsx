@@ -27,7 +27,7 @@ export default function RouteDisplay({
                 color={lineToColour.get(pathItem.line) ?? ""}
                 size={12}
               />
-              <Text size="sm">{station}</Text>
+              <Text size="sm"> {station.split("/")[0]}</Text>
               {showMeetingPoint &&
                 routeIndex === reversedRoute.length - 1 &&
                 stationIndex === pathItem.path.length - 1 && (

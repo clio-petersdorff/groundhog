@@ -25,6 +25,7 @@ export function StationsProvider({ children }: { children: ReactNode }) {
   const [selectedStations, setSelectedStations] = useState<StationType[]>([
     { commonName: "", stationNaptan: "", lat: 0, lon: 0, modes: [] },
     { commonName: "", stationNaptan: "", lat: 0, lon: 0, modes: [] },
+    { commonName: "", stationNaptan: "", lat: 0, lon: 0, modes: [] },
   ]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
