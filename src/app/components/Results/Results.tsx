@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import { StationType, TravelTimeType } from "../../../types/Types";
-import NotFound from "../NotFound/NotFound";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import {
   IconArrowLeft,
   IconChevronRight,
   IconMessageCircle,
 } from "@tabler/icons-react";
+
 import FairStation from "./FairStation";
-import { useLocation, useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../constants/routes";
-import { useDisclosure } from "@mantine/hooks";
 import FeedbackModal from "../FeedbackModal/FeedbackModal";
+import NotFound from "../NotFound/NotFound";
+
+import { ROUTES } from "../../../constants/routes";
+import { StationType, TravelTimeType } from "../../../types/Types";
 
 interface ResultsProps {
   allStations: StationType[];

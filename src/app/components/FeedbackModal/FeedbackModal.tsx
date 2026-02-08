@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+
+import { useForm } from "@mantine/form";
 import {
   Button,
   Center,
@@ -9,8 +12,6 @@ import {
   Image,
   Flex,
 } from "@mantine/core";
-import React, { useState } from "react";
-import { useForm } from "@mantine/form";
 
 interface FeedbackModalProps {
   opened: boolean;

@@ -1,15 +1,19 @@
-import { Button, Center, Group, SegmentedControl, Space } from "@mantine/core";
-import { StationType } from "../../../types/Types";
-import { IconArrowRight } from "@tabler/icons-react";
 import React, { useState } from "react";
-import StationInputs from "./StationInputs";
-import AddressInputs from "./AddressInputs";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../constants/routes";
 import axios from "axios";
-import { getApiUrl } from "../../../config/env";
+
 import { getDeviceInfo, logUserEvent } from "../../actions/analytics.ts";
+
+import { Button, Center, Group, SegmentedControl, Space } from "@mantine/core";
+import { IconArrowRight } from "@tabler/icons-react";
+import { ROUTES } from "../../../constants/routes";
+import { getApiUrl } from "../../../config/env";
+
+import AddressInputs from "./AddressInputs";
+import StationInputs from "./StationInputs";
 import Loading from "../Loading/Loading.tsx";
+
+import { StationType } from "../../../types/Types";
 
 interface InputsProps {
   allStations: StationType[];
