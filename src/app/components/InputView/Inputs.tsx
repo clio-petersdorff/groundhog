@@ -80,38 +80,40 @@ export default function Inputs({
       {
         // Render inputs based on search type
         searchType === "station" ? (
-          <StationInputs
-            allStations={allStations}
-            selectedStations={selectedStations}
-            setSelectedStations={setSelectedStations}
-          />
+          <>
+            <StationInputs
+              allStations={allStations}
+              selectedStations={selectedStations}
+              setSelectedStations={setSelectedStations}
+            />
+            {/* Button to add more selects up to 5 */}
+            <Center>
+              <Button w="4em" color="cyan" onClick={handleAddSelect}>
+                +
+              </Button>
+            </Center>
+
+            <Space h="2em" />
+            <Group justify="flex-end">
+              <Button
+                onClick={handleNext}
+                w="7em"
+                color="cyan"
+                rightSection={<IconArrowRight size={14} />}
+                disabled={
+                  selectedStations.filter(
+                    (station) => station.commonName !== ""
+                  ).length < 2
+                } // Only enable if at least 2 stations are selected
+              >
+                Next
+              </Button>
+            </Group>
+          </>
         ) : (
           <AddressInputs />
         )
       }
-
-      {/* Button to add more selects up to 5 */}
-      <Center>
-        <Button w="4em" color="cyan" onClick={handleAddSelect}>
-          +
-        </Button>
-      </Center>
-
-      <Space h="2em" />
-      <Group justify="flex-end">
-        <Button
-          onClick={handleNext}
-          w="7em"
-          color="cyan"
-          rightSection={<IconArrowRight size={14} />}
-          disabled={
-            selectedStations.filter((station) => station.commonName !== "")
-              .length < 2
-          } // Only enable if at least 2 stations are selected
-        >
-          Next
-        </Button>
-      </Group>
     </>
   );
 }

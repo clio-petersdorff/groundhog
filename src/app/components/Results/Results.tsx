@@ -99,15 +99,15 @@ export default function Results({ allStations }: ResultsProps) {
                     style={{ cursor: "pointer" }}
                     onClick={() => handleToggleStation(stationIndex)}
                   >
-                    <Group justify="space-between" wrap="nowrap">
+                    <Group justify="space-between" wrap="nowrap" w="100%">
                       <Text size="sm" fw={600}>
                         {stationName.split("/")[0]}
                       </Text>
-                      <Group gap="xs" w="8em" wrap="nowrap">
-                        <Text size="sm" c="dimmed" ta="right">
+                      <Group gap="xs" miw="6em" wrap="nowrap" h={16}>
+                        <Text size="sm" c="dimmed">
                           view more
                         </Text>
-                        <IconChevronRight size={16} />
+                        <IconChevronRight size={16} color="grey" />
                       </Group>
                     </Group>
                   </Paper>
