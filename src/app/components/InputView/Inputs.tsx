@@ -31,7 +31,7 @@ export default function Inputs({
   }
   // Add a new select input
   const handleAddSelect = () => {
-    if (selectedStations.length < 5) {
+    if (selectedStations.length < 6) {
       setSelectedStations([...selectedStations, {} as StationType]); // Add empty object as placeholder
     }
   };
@@ -48,8 +48,6 @@ export default function Inputs({
 
     try {
       const deviceInfo = getDeviceInfo();
-      console.log(deviceInfo);
-
       logUserEvent(stationNaptans, deviceInfo);
 
       const { data } = await axios.post(getApiUrl("ROUTE"), {
@@ -82,38 +80,40 @@ export default function Inputs({
       {
         // Render inputs based on search type
         searchType === "station" ? (
-          <StationInputs
-            allStations={allStations}
-            selectedStations={selectedStations}
-            setSelectedStations={setSelectedStations}
-          />
+          <>
+            <StationInputs
+              allStations={allStations}
+              selectedStations={selectedStations}
+              setSelectedStations={setSelectedStations}
+            />
+            {/* Button to add more selects up to 5 */}
+            <Center>
+              <Button w="4em" color="cyan" onClick={handleAddSelect}>
+                +
+              </Button>
+            </Center>
+
+            <Space h="2em" />
+            <Group justify="flex-end">
+              <Button
+                onClick={handleNext}
+                w="7em"
+                color="cyan"
+                rightSection={<IconArrowRight size={14} />}
+                disabled={
+                  selectedStations.filter(
+                    (station) => station.commonName !== ""
+                  ).length < 2
+                } // Only enable if at least 2 stations are selected
+              >
+                Next
+              </Button>
+            </Group>
+          </>
         ) : (
           <AddressInputs />
         )
       }
-
-      {/* Button to add more selects up to 5 */}
-      <Center>
-        <Button w="4em" color="cyan" onClick={handleAddSelect}>
-          +
-        </Button>
-      </Center>
-
-      <Space h="2em" />
-      <Group justify="flex-end">
-        <Button
-          onClick={handleNext}
-          w="7em"
-          color="cyan"
-          rightSection={<IconArrowRight size={14} />}
-          disabled={
-            selectedStations.filter((station) => station.commonName !== "")
-              .length < 2
-          } // Only enable if at least 2 stations are selected
-        >
-          Next
-        </Button>
-      </Group>
     </>
   );
 }

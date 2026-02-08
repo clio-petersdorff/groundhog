@@ -95,18 +95,19 @@ export default function Results({ allStations }: ResultsProps) {
                   <Paper
                     withBorder
                     p="md"
+                    pr="xs"
                     style={{ cursor: "pointer" }}
                     onClick={() => handleToggleStation(stationIndex)}
                   >
-                    <Group justify="space-between" wrap="nowrap">
+                    <Group justify="space-between" wrap="nowrap" w="100%">
                       <Text size="sm" fw={600}>
-                        {stationName}
+                        {stationName.split("/")[0]}
                       </Text>
-                      <Group gap="xs" w="7em">
+                      <Group gap="xs" miw="6em" wrap="nowrap" h={16}>
                         <Text size="sm" c="dimmed">
                           view more
                         </Text>
-                        <IconChevronRight size={16} />
+                        <IconChevronRight size={16} color="grey" />
                       </Group>
                     </Group>
                   </Paper>

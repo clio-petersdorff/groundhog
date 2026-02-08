@@ -75,18 +75,23 @@ export default function UserTravelCard({
         ) : (
           <Tooltip label="Click to expand" position="right" color="#2D3142">
             <Group gap="xs" wrap="wrap">
-              {travelTime.route.slice().map((pathItem, routeIndex) => (
-                <Group key={routeIndex} gap="xs">
-                  <ColorSwatch
-                    color={lineToColour.get(pathItem.line) ?? ""}
-                    size={12}
-                  />
-                  <Text size="sm">{capitalizeFirstLetter(pathItem.line)}</Text>
-                  {routeIndex < travelTime.route.length - 1 && (
-                    <IconArrowRight size={14} />
-                  )}
-                </Group>
-              ))}
+              {travelTime.route
+                .slice()
+                .reverse()
+                .map((pathItem, routeIndex) => (
+                  <Group key={routeIndex} gap="xs">
+                    <ColorSwatch
+                      color={lineToColour.get(pathItem.line) ?? ""}
+                      size={12}
+                    />
+                    <Text size="sm">
+                      {capitalizeFirstLetter(pathItem.line)}
+                    </Text>
+                    {routeIndex < travelTime.route.length - 1 && (
+                      <IconArrowRight size={14} />
+                    )}
+                  </Group>
+                ))}
             </Group>
           </Tooltip>
         )}
