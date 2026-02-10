@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { StationType, TravelTimeType } from "../../../types/Types";
-import NotFound from "../NotFound/NotFound";
-import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
-import { IconArrowLeft, IconChevronRight } from "@tabler/icons-react";
-import FairStation from "./FairStation";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import { Stack, ActionIcon, Text, Paper, Group } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import {
+  IconArrowLeft,
+  IconChevronRight,
+  IconMessageCircle,
+} from "@tabler/icons-react";
+
+import FairStation from "./FairStation";
+import FeedbackModal from "../FeedbackModal/FeedbackModal";
+import NotFound from "../NotFound/NotFound";
+
 import { ROUTES } from "../../../constants/routes";
+import { StationType, TravelTimeType } from "../../../types/Types";
 
 interface ResultsProps {
   allStations: StationType[];
@@ -23,6 +32,7 @@ export default function Results({ allStations }: ResultsProps) {
   const [expandedStationIndex, setExpandedStationIndex] = useState<
     number | null
   >(null);
+  const [opened, { open, close }] = useDisclosure();
 
   if (travelTimes === null || travelTimes.length === 0) {
     return <NotFound />;
@@ -55,6 +65,16 @@ export default function Results({ allStations }: ResultsProps) {
         style={{ position: "absolute", top: "1em", left: "0.5em" }}
       >
         <IconArrowLeft />
+      </ActionIcon>
+
+      <ActionIcon
+        onClick={open}
+        color="teal"
+        variant="light"
+        p={0}
+        style={{ position: "absolute", top: "1em", right: "0.5em" }}
+      >
+        <IconMessageCircle size={18} />
       </ActionIcon>
 
       {/* First (fairest) station - always expanded */}
@@ -117,6 +137,8 @@ export default function Results({ allStations }: ResultsProps) {
           })}
         </Stack>
       )}
+
+      <FeedbackModal opened={opened} close={close} />
     </Stack>
   );
 }
